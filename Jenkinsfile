@@ -33,12 +33,13 @@ pipeline {
                 npm test
                 '''
             }
-        }
+        
          post {
         always {
             junit 'junit.xml'
+            }
         }
-    }
+        }
    
     stage('Deploy') {
             agent {
