@@ -34,6 +34,11 @@ pipeline {
                 '''
             }
         }
+         post {
+        always {
+            junit 'junit.xml'
+        }
+    }
    
     stage('Deploy') {
             agent {
@@ -50,9 +55,5 @@ pipeline {
             }
         }
     }
-    post {
-        always {
-            junit 'junit.xml'
-        }
-    }
+   
 }
