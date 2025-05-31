@@ -34,6 +34,7 @@ pipeline {
                 npm test
                 '''
             }
+        }
         stage('Deploy') {
                agent {
                 docker {
@@ -49,11 +50,7 @@ pipeline {
   
 
         }
-
-
-
-
-        
+       
         }
         
    post {
