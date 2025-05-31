@@ -53,7 +53,9 @@ pipeline {
                 echo "Deploying to production. Site ID:$NETLIFY_SITE_ID"
                 # Shows status, user account and if the secret works
                 node_modules/.bin/netlify status
-                # Deploy to production including which directory to deploy to (build) and deploy to production
+                # Deploy to production including which directory to deploy to (build) and deploy to production. I added --no-build since it was failing
+                # due to alpine not having bash and Netlify CLI expecting bash to build. Since the build was done earlier we do not need to build again 
+                # and we can use that same one.
                 node_modules/.bin/netlify deploy --dir=build --no-build --prod
                 '''      
           }
