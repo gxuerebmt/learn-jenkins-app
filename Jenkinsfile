@@ -48,13 +48,14 @@ pipeline {
                }
             steps {
                 sh '''
+                apk add --no-cache bash
                 npm install netlify-cli
                 node_modules/.bin/netlify --version
                 echo "Deploying to production. Site ID:$NETLIFY_SITE_ID"
                 # Shows status, user account and if the secret works
                 node_modules/.bin/netlify status
                 # Deploy to production including which directory to deploy to (build) and deploy to production
-                node_modules/.bin/netlify deploy --dir=C:\George\Devops\Jenkins\install-jenkins-docker\build --prod
+                node_modules/.bin/netlify deploy --dir=build --prod
                 '''      
           }
        }
