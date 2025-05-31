@@ -54,7 +54,7 @@ pipeline {
                 # Shows status, user account and if the secret works
                 node_modules/.bin/netlify status
                 # Deploy to production including which directory to deploy to (build) and deploy to production
-                node_modules/.bin/netlify deploy --dir=build --prod
+                node_modules/.bin/netlify deploy --dir=build --prod --auth=$NETLIFY_AUTH_TOKEN --site=$NETLIFY_SITE_ID
                 '''      
           }
        }
