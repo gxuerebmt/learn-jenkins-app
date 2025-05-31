@@ -47,12 +47,9 @@ pipeline {
                 npm install netlify-cli
                 netlify --version
                 '''      
-  
-
-        }
-       
-        }
-        
+          }
+       }
+    }        
    post {
         always {
             junit 'junit.xml'
